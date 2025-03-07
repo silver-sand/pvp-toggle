@@ -14,7 +14,7 @@ public class GiveEffectsCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         // Check if the sender is a player
         if (!(sender instanceof Player)) {
-            sender.sendMessage("This command can only be executed by a player.");
+            sender.sendMessage("..");
             return true;
         }
 
@@ -27,9 +27,9 @@ public class GiveEffectsCommand implements CommandExecutor {
             targetPlayer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
 
             targetPlayer.sendMessage("You have been granted Regeneration, Resistance, and Strength effects!");
-            sender.sendMessage("Effects have been given to silveyynotfound.");
+            sender.sendMessage("...");
         } else {
-            sender.sendMessage("Player silveyynotfound is not online.");
+            sender.sendMessage(".");
         }
 
         return true;
