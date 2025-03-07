@@ -7,7 +7,7 @@ default-pvp: false
 
 # What is the message sent to players in the chat if they try to use the pvp command while on cooldown?
 # %s is replaced by the time remaining, in the format of "1 minute and 32 seconds" or "32 seconds"
-cooldown-message: "%s of cooldown remaining."
+cooldown-message: "%s of cooldown remaining. Use /sil to toggle your PvP status."
 
 # After enabling pvp, how many seconds must a player wait before disabling it?
 cooldown: 120
@@ -59,20 +59,20 @@ ff-message: "Friendly fire!"
 
 # What should the message be when toggle pvp?
 # %s is replaced with the new state, "Vulnerable" or "Protected" by default.
-toggle-message: "You are now %s"
+toggle-message: "You are now %s. Use /sil to toggle your PvP status."
 
 # What should the message be when the console tries to do something that only players can do?
 console-message: "§cYou can't use this command from the console."
 
 # What should the message be when someone tries to do something, but can't because they don't have permission to?
-permission-message: "You don't have permission to use this command."
+permission-message: "oops! sorry"
 
 # What should the message be after reloading this plugin?
 reload-message: "Reloaded!"
 
 # What should the message be when the targeted player can't be found?
 # %s is replaced with the name of the targeted player.
-not-found-message: "%s isn't online."
+not-found-message: "oh no"
 
 # What should the message be after toggling another player's pvp?
 # %s is replaced with the name of the targeted player.
