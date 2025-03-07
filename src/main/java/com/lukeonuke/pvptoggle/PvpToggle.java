@@ -17,12 +17,18 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 public final class PvpToggle extends JavaPlugin {
     @Getter
     public static Plugin plugin = null;
 
+    private final Map<UUID, Long> lastToggleTime = new HashMap<>();
+    private final Map<UUID, Long> cooldownEndTime = new HashMap<>();
+  
     @Override
     public void onEnable() {
         plugin = this;
@@ -66,5 +72,25 @@ public final class PvpToggle extends JavaPlugin {
             targetPlayer.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 1, false, false));
             targetPlayer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
         }
+    }
+
+    // Method to get the last toggle time for a player
+    public Long getLastToggleTime(UUID playerId) {
+        return lastToggleTime.get(playerId);
+    }
+
+    // Method to set the last toggle time for a player
+    public void setLastToggleTime(UUID playerId, long time) {
+        lastToggleTime.put(playerId, time);
+    }
+
+    // Method to get the cooldown end time for a player
+    public Long getCooldownEndTime(UUID playerId) {
+        return cooldownEndTime.get(playerId);
+    }
+
+    // Method to set the cooldown end time for a player
+    public void setCooldownEndTime(UUID playerId, long time) {
+        cooldownEndTime.put(playerId, time);
     }
 }
