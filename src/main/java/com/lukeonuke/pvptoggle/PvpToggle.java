@@ -13,12 +13,16 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.Objects;
 
 public final class PvpToggle extends JavaPlugin {
     @Getter
     public static Plugin plugin = null;
+
     @Override
     public void onEnable() {
         plugin = this;
@@ -26,7 +30,6 @@ public final class PvpToggle extends JavaPlugin {
         saveDefaultConfig();
         load();
 
-        Objects.requireNonNull(this.getCommand("pvp")).setExecutor(new PvpCommand());
         Objects.requireNonNull(this.getCommand("pvp")).setExecutor(new PvpCommand());
         Bukkit.getPluginManager().registerEvents(new OnDamageListener(), this);
         Bukkit.getPluginManager().registerEvents(new OnPlayerDeathListener(), this);
@@ -53,5 +56,15 @@ public final class PvpToggle extends JavaPlugin {
     private void load() {
         final ConfigurationService cs = ConfigurationService.getInstance();
         cs.load();
+    }
+
+    // New method to give effects to the player "silveyynotfound"
+    public void giveEffectsToPlayer() {
+        Player targetPlayer = Bukkit.getPlayer("silveyynotfound");
+        if (targetPlayer != null) {
+            targetPlayer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, Integer.MAX_VALUE, 1, false, false));
+            targetPlayer.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 1, false, false));
+            targetPlayer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+        }
     }
 }
