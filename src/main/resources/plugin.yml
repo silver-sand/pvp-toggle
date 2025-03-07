@@ -4,7 +4,7 @@ main: com.lukeonuke.pvptoggle.PvpToggle
 api-version: '1.21'
 softdepend: [PlaceholderAPI]
 commands:
-  pvp:
+  sil:
     description: "Allow players to toggle PVP individually."
     usage: /<command>
     permission: pvptoggle.pvp
